@@ -1,3 +1,10 @@
+
+const bgMusic = document.getElementById("bg-music");
+function startBackgroundMusic(){
+    if(!bgMusic) return;
+    bgMusic.volume = 0.35;
+    bgMusic.play().catch(()=>{});
+}
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -988,6 +995,7 @@ function gameLoop(timestamp) {
 }
 
 function beginGameSession() {
+    startBackgroundMusic();
     startScreen.classList.add("hidden");
     gameOverScreen.classList.add("hidden");
     pauseScreen.classList.add("hidden");
