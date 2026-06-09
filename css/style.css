@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+}
+
+:root {
+    --bg-dark: #101419;
+    --card-bg: rgba(30, 37, 43, 0.94);
+    --panel-bg: #1e252b;
+    --skyrim-gold: #d4af37;
+    --skyrim-red: #c0392b;
+    --text-light: #f5f6fa;
+    --muted: #a0a8b0;
+    --green: #4cd137;
+    --cyan: #00d2d3;
+}
+
+body {
+    background:
+        radial-gradient(circle at top, rgba(58, 123, 213, 0.2), transparent 38%),
+        linear-gradient(135deg, #090c10, var(--bg-dark) 45%, #1b1510);
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.screen {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.menu-card {
+    background: var(--card-bg);
+    border: 2px solid var(--skyrim-gold);
+    border-radius: 14px;
+    padding: 36px;
+    text-align: center;
+    max-width: 560px;
+    width: 100%;
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.55), inset 0 0 30px rgba(212, 175, 55, 0.05);
+    backdrop-filter: blur(6px);
+}
+
+.small-card {
+    max-width: 360px;
+}
+
+.crest {
+    font-size: 3.2rem;
+    color: var(--skyrim-gold);
+    line-height: 1;
+    text-shadow: 0 0 18px rgba(212, 175, 55, 0.45);
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--skyrim-gold);
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.subtitle {
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 24px;
+}
+
+.instructions {
+    background: rgba(0, 0, 0, 0.24);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+    margin-bottom: 28px;
+    border: 1px solid rgba(212, 175, 55, 0.22);
+}
+
+.instructions h3 {
+    color: var(--skyrim-gold);
+    margin-bottom: 10px;
+}
+
+.instructions ul {
+    list-style-type: none;
+    line-height: 1.8;
+}
+
+.goal {
+    margin-top: 15px;
+    font-weight: 700;
+    color: var(--green);
+    text-align: center;
+}
+
+.tiny-note {
+    color: var(--muted);
+    margin-top: 16px;
+    font-size: 0.9rem;
+}
+
+.btn {
+    background: transparent;
+    border: 2px solid var(--skyrim-gold);
+    color: var(--skyrim-gold);
+    padding: 12px 32px;
+    font-size: 1.05rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+    background: var(--skyrim-gold);
+    color: var(--bg-dark);
+    box-shadow: 0 0 18px rgba(212, 175, 55, 0.45);
+    transform: translateY(-1px);
+    outline: none;
+}
+
+#game-container {
+    max-width: 900px;
+    width: min(96vw, 900px);
+    height: auto;
+    position: relative;
+}
+
+#ui-header {
+    width: 100%;
+    background: var(--panel-bg);
+    border: 2px solid var(--skyrim-gold);
+    border-bottom: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(4px, 1.2vw, 14px);
+    flex-wrap: nowrap;
+    padding: 10px 8px;
+    min-height: 48px;
+    font-size: var(--ui-font-size, 15px);
+    line-height: 1;
+    font-weight: 800;
+    overflow: hidden;
+}
+
+.ui-element {
+    white-space: nowrap;
+    flex: 0 1 auto;
+    min-width: 0;
+}
+
+#ui-health { color: #ff4757; }
+#ui-stamina { color: #2ed573; }
+#ui-gold { color: var(--skyrim-gold); }
+#ui-kills { color: #ff9f43; }
+#ui-level { color: var(--cyan); }
+
+.rarity-common { color: #bdc3c7; }
+.rarity-uncommon { color: #2ecc71; }
+.rarity-rare { color: #3498db; }
+.rarity-epic { color: #9b59b6; }
+.rarity-legendary { color: #e74c3c; }
+
+#quest-log {
+    width: 100%;
+    background: rgba(10, 12, 15, 0.88);
+    border-left: 2px solid var(--skyrim-gold);
+    border-right: 2px solid var(--skyrim-gold);
+    padding: 8px 12px;
+    color: #f1c40f;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+canvas {
+    background: #243447;
+    border: 2px solid var(--skyrim-gold);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    display: block;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+}
+
+#toast {
+    position: absolute;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--skyrim-gold);
+    color: var(--text-light);
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-weight: 700;
+    pointer-events: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.overlay-screen {
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 5;
+}
+
+.victory h1 {
+    color: var(--green);
+}
+
+@media (max-width: 620px) {
+    .screen { padding: 10px; }
+    .menu-card { padding: 24px; }
+    .instructions { font-size: 0.95rem; }
+    #ui-header { padding-inline: 6px; }
+}
